@@ -1,4 +1,4 @@
-package java;
+package javaCode;
 import java.util.Scanner;
 
 public class Layer {

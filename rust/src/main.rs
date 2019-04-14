@@ -32,6 +32,8 @@ fn relu(x: f32) -> f32 {
     x.max(0.0)
 }
 
+
+
 fn forward(inputs: &[f32]) -> Vec<f32> {
     inputs
         .iter()
