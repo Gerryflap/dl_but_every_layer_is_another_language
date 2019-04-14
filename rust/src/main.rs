@@ -35,12 +35,15 @@ fn relu(x: f32) -> f32 {
 
 
 fn forward(inputs: &[f32]) -> Vec<f32> {
-    inputs
+    BIASES
         .iter()
         .zip(&WEIGHTS)
-        .zip(&BIASES)
-        .map(|((input, weights), bias)| {
-            let output: f32 = weights.iter().map(|weight| weight * input).sum();
+        .map(|(bias, weights)| {
+            let output: f32 = weights
+                .iter()
+                .zip(inputs)
+                .map(|(weight, input)| weight * input)
+                .sum();
 
             relu(output + bias)
         })
